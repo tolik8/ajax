@@ -1,0 +1,9 @@
+.getInfo {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #0000CC;
+}
+
+.hide {
+  display: none;
+}

@@ -4,17 +4,22 @@ $('.getInfo').click(function() {
 
     var $login = $('#login').text();
     var $n = (this).id.substr(7);
-    var $random = Math.random();
     
-    $.ajax({
-        method: "POST",
+    var request = $.ajax({
         url: "ajax/get_phone.php",
-        data: {login: $login, n: $n, random: $random}
-    }).done(function(msg){
+        method: "POST",
+        cache: false,
+        data: {login: $login, n: $n}
+    });
+    
+    request.done(function(msg){
         $('#tel_' + $n).html(msg);
         $('#getTel_' + $n).attr('class', 'hide');
     });
 
+    request.fail(function(jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
 });
 
 });

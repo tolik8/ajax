@@ -9,7 +9,11 @@ $('.getInfo').click(function() {
         url: "ajax/get_phone.php",
         method: "POST",
         cache: false,
-        data: {login: $login, n: $n}
+        data: {login: $login, n: $n},
+        dataType: "html",
+        beforeSend: function() {
+            $('#tel_' + $n).html('Loading ...');
+        }
     });
     
     request.done(function(msg){

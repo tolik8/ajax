@@ -2,8 +2,8 @@
 
 require '../pdo.php';
 
-$login = $_POST['login'];
-$n = $_POST['n'];
+$login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$n = filter_input(INPUT_POST, 'n', FILTER_SANITIZE_NUMBER_INT);
 
 $sql = "SELECT phone FROM phones WHERE login = :login AND n = :n";
 $stmt = $db->prepare($sql);
@@ -11,6 +11,7 @@ $stmt->bindParam(':login', $login);
 $stmt->bindParam(':n', $n);
 $stmt->execute();
 $rows = $stmt->fetch();
-$result = $rows['phone'];
+$array = ['phone' => $rows['phone']];
+$json = json_encode($array);
 
-echo $result;
+echo $json;

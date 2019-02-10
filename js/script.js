@@ -10,14 +10,14 @@ $('.getInfo').click(function() {
         method: "POST",
         cache: false,
         data: {login: $login, n: $n},
-        dataType: "html",
+        dataType: "json",
         beforeSend: function() {
             $('#tel_' + $n).html('Loading ...');
         }
     });
     
     request.done(function(msg){
-        $('#tel_' + $n).html(msg);
+        $('#tel_' + $n).html(msg.phone);
         $('#getTel_' + $n).attr('class', 'hide');
     });
 

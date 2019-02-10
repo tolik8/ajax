@@ -14,4 +14,5 @@ $rows = $stmt->fetch();
 $array = ['phone' => $rows['phone']];
 $json = json_encode($array);
 
+//echo $rows['phone'];
 echo $json;

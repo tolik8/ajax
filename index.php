@@ -8,6 +8,7 @@
 <body>
 
 <?php
+    require 'set_ini.php';
     require 'pdo.php';
     $login = 'user';
 ?>

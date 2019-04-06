@@ -13,4 +13,8 @@ $dbOptions = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
-$db = new PDO($dbDSN, $dbUsername, $dbPassword, $dbOptions);
+try {
+    $db = new PDO($dbDSN, $dbUsername, $dbPassword, $dbOptions);
+} catch (PDOException $e) {
+    exit ($e->getMessage());
+}

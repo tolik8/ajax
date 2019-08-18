@@ -2,10 +2,10 @@ $(document).ready(function() {
 
 $('.getInfo').click(function() {
 
-    var $login = $('#login').text();
-    var $n = (this).id.substr(7);
+    let $login = $('#login').text();
+    let $n = (this).id.substr(7);
     
-    var request = $.ajax({
+    let request = $.ajax({
         url: "ajax/get_phone.php",
         method: "POST",
         cache: false,
